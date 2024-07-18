@@ -130,6 +130,14 @@ namespace SkiaSharp
 			}
 		}
 
+		public void SetRectRadii (SKRect rect, SKPoint* radii)
+		{
+			if (radii == null)
+				throw new ArgumentNullException (nameof (radii));
+
+			SkiaApi.sk_rrect_set_rect_radii (Handle, &rect, radii);
+		}
+
 		public bool Contains (SKRect rect)
 		{
 			return SkiaApi.sk_rrect_contains (Handle, &rect);
